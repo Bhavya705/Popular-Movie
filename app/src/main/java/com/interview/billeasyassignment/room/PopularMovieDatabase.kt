@@ -21,7 +21,7 @@ abstract class PopularMovieDatabase: RoomDatabase() {
             instance ?: createDatabase(context).also{ instance= it}
         }
 
-        private fun createDatabase(context: Context) =
+         fun createDatabase(context: Context) =
             Room.databaseBuilder(
                 context.applicationContext,
                 PopularMovieDatabase::class.java,

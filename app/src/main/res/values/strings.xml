@@ -2,4 +2,8 @@
     <string name="app_name">Popular Movie</string>
     <string name="movie_catalog">Movie Catalog</string>
     <string name="popular_movie">Popular Movie</string>
+    <string name="homeScreen_error_message">Sorry! Could not fetch</string>
+    <string name="homeScreen_please_check_your_network_connection">Please check your network connection</string>
+    <string name="homeScreen_retry">RETRY</string>
+    <string name="retry">RETRY</string>
 </resources>

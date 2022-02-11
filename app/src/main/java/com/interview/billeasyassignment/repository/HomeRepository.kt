@@ -14,23 +14,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class HomeRepository(context: Context) {
+class HomeRepository() {
 
-    private lateinit var popularMovieDao: PopularMovieDao
-
-    private var userDetails: LiveData<List<PopularMovieEntity>>
-
-    init {
-        val database = PopularMovieDatabase(context)
-        if (database != null) {
-            popularMovieDao = database.popularMovieDao()
-        }
-        userDetails = popularMovieDao.getAll()
-    }
-
-    fun getPopularMovieList():LiveData<List<PopularMovieEntity>>{
-        return userDetails
-    }
+   // val readAllData: LiveData<List<PopularMovieEntity>> = popularMovieDao.getAll()
 
     suspend fun getTopMovie(api: String): Response<TopMovieDataClass> {
 

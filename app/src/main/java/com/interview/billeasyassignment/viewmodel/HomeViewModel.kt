@@ -1,24 +1,19 @@
 package com.interview.billeasyassignment.viewmodel
 
-import android.content.Context
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.interview.billeasyassignment.model.TopMovieDataClass
 import com.interview.billeasyassignment.repository.HomeRepository
-import com.interview.billeasyassignment.room.PopularMovieDatabase
 import kotlinx.coroutines.launch
-import retrofit2.Response
 import timber.log.Timber
 
-class HomeViewModel(private val popularMovieDatabase: PopularMovieDatabase,context: Context): ViewModel() {
+class HomeViewModel(): ViewModel() {
 
-    var homeRepository: HomeRepository = HomeRepository(context)
-
+    //val readAllData: LiveData<List<PopularMovieEntity>> = homeRepository.readAllData
+    private val homeRepository= HomeRepository()
     private val _topMovieListLiveData = MutableLiveData<TopMovieDataClass>()
     private val topMovieListLiveData: LiveData<TopMovieDataClass>
         get() = _topMovieListLiveData
+
 
      fun getTopMovieList(api: String): LiveData<TopMovieDataClass>{
         // Launches a coroutine having viewModel scope
@@ -27,8 +22,7 @@ class HomeViewModel(private val popularMovieDatabase: PopularMovieDatabase,conte
             val response = homeRepository.getTopMovie(api)
 
             if (response.isSuccessful) {
-
-                popularMovieDatabase.popularMovieDao().getAll()
+                //popularMovieDatabase.popularMovieDao().getAll()
                 val imagesList: TopMovieDataClass? = response.body()
                 _topMovieListLiveData.value = imagesList!!
 
@@ -39,3 +33,14 @@ class HomeViewModel(private val popularMovieDatabase: PopularMovieDatabase,conte
         return topMovieListLiveData
     }
 }
+
+//class MovieViewModelFactory(private val repository: HomeRepository) : ViewModelProvider.Factory {
+//    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+//        if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
+//            @Suppress("UNCHECKED_CAST")
+//            return HomeViewModel(repository) as T
+//        }
+//        throw IllegalArgumentException("Unknown ViewModel class")
+//    }
+//}
+

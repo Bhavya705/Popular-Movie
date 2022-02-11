@@ -32,17 +32,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Priates of Carabian" />
 
-<!--    <androidx.appcompat.widget.AppCompatImageView-->
-<!--        android:id="@+id/ivLocation"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/tvMovieRating"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/ivMovieImage"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/tvMovieRating"-->
-<!--        app:layout_constraintVertical_bias="1.0"-->
-<!--        app:srcCompat="@drawable/ic_round_star_rate_24" />-->
-
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvMovieRating"
         android:layout_width="0dp"
